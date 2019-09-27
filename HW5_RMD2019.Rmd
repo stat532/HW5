@@ -1,0 +1,51 @@
+---
+title: "HW 5"
+author: "Name here"
+output: pdf_document
+---
+
+Please use D2L to turn in both the PDF output and your R Markdown file.
+
+### Q1.
+After enjoying numerous Bridger Bowl powder days during your time at MSU, you have received a job offer in New Mexico. Your decision hinges on the quality of snow at your potential new home mountain, Taos.
+
+According to [https://www.onthesnow.com/new-mexico/taos-ski-valley/historical-snowfall.html](https://www.onthesnow.com/new-mexico/taos-ski-valley/historical-snowfall.html) annual snowfall totals can be obtained.
+
+Below are the snowfall totals for Taos and Bridger Bowl for the last nine years.
+```{r}
+taos <- c(78,192,169,179,191,204,197,116,195)
+bridger <- c(271,209,228,166,316,254,344,319,247) 
+```
+
+Specifically the BSF is interested in computing three probabilistic statements.
+
+ 
+1. $Pr[\theta_{bridger} > 250]$ 
+2. $Pr[\theta_{taos} > 180]$
+3. $Pr[\theta_{bridger} > \theta_{taos}]$ where $\theta_{bridger}$ is the mean annual snow fall at Bridger Bowl and $\theta_{taos}$ is the mean annual snow fall at Taos.
+
+#### a. (5 pts)
+How would you go about addressing the questions in a classical framework? Would you be able to compute these probabilities?
+
+#### b. (10 pts)
+
+Using the prior structure where $p(\sigma_{bridger}^2,\theta_{bridger}) = p(\theta_{bridger}|\sigma_{bridger}^2) p(\sigma_{bridger}^2)$ and $p(\sigma_{taos}^2,\theta_{taos}) = p(\theta_{taos}|\sigma_{taos}^2) p(\sigma_{taos}^2)$ compute the marginal posterior distributions $p(\theta_{bridger}|y_{{bridger},1}, \dots, y_{{bridger},15})$ and \\$p(\theta_{taos}|y_{{taos},1}, \dots, y_{{taos},9})$, where $\sigma_1^2$ and $\sigma_{taos}^2$ are the variances for snowfall (in inches) a, and $y_{i,j}$ is the observed snowfall at location $i$ for reading $j$. Then using posterior samples from each distribution compute the three values specified above.
+
+### Q2. 
+##### a. (5 points)
+Sketch out the steps for a Gibbs sampler algorithm. 
+
+##### b. (5 pts)
+Simulating data is a key step in verifying your algorithms are working correctly. This will be more apparent as we start studying sophisticated hierarchical models.
+
+Simulate 100 observations from a standard normal distribution and plot a histogram of your data.
+
+##### c. (5 pts)
+Select and state prior distributions for $\theta$ the mean of the normal distribution and $\sigma^2$ the variance (or alternatively you may parameterize your model using the precision term).
+
+##### d. (5 pts)
+Implement an MCMC algorithm (using a Gibbs sampler or JAGS/stan) to simulate from the joint posterior distribution $p(\theta,\sigma^2|y_1, \dots, y_{100})$. Plot trace plots and histograms of the marginal posterior distributions for $\theta$ and $\sigma^2$. Include the true values on these figures. Comment on the figures.
+
+
+
+
